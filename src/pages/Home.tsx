@@ -2,15 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Play, Info } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import heroBanner from "@/assets/hero-banner.jpg";
+import show1 from "@/assets/show-1.jpg";
+import show2 from "@/assets/show-2.jpg";
+import show3 from "@/assets/show-3.jpg";
+import show4 from "@/assets/show-4.jpg";
+import show5 from "@/assets/show-5.jpg";
+import show6 from "@/assets/show-6.jpg";
 
 const Home = () => {
   const trendingContent = [
-    { id: 1, title: "The Crown", genre: "Drama", rating: "9.2" },
-    { id: 2, title: "Stranger Things", genre: "Sci-Fi", rating: "8.9" },
-    { id: 3, title: "The Witcher", genre: "Fantasy", rating: "8.5" },
-    { id: 4, title: "Breaking Bad", genre: "Crime", rating: "9.5" },
-    { id: 5, title: "Game of Thrones", genre: "Fantasy", rating: "9.1" },
-    { id: 6, title: "The Mandalorian", genre: "Sci-Fi", rating: "8.7" },
+    { id: 1, title: "The Crown", genre: "Drama", rating: "9.2", image: show1 },
+    { id: 2, title: "Stranger Things", genre: "Sci-Fi", rating: "8.9", image: show2 },
+    { id: 3, title: "The Witcher", genre: "Fantasy", rating: "8.5", image: show3 },
+    { id: 4, title: "Breaking Bad", genre: "Crime", rating: "9.5", image: show4 },
+    { id: 5, title: "Game of Thrones", genre: "Fantasy", rating: "9.1", image: show5 },
+    { id: 6, title: "The Mandalorian", genre: "Sci-Fi", rating: "8.7", image: show6 },
   ];
 
   return (
@@ -19,8 +26,15 @@ const Home = () => {
       
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 gradient-hero opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="absolute inset-0">
+          <img 
+            src={heroBanner} 
+            alt="Featured Content" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl space-y-6">
@@ -58,9 +72,14 @@ const Home = () => {
               className="group relative overflow-hidden cursor-pointer transition-smooth hover:scale-105 hover:shadow-glow border-border/50 animate-in fade-in slide-in-from-bottom-4 duration-700"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
-                <Play className="h-16 w-16 text-primary opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-smooth" />
+              <div className="aspect-video relative overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-smooth group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60 group-hover:opacity-80 transition-smooth" />
+                <Play className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 text-primary opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-smooth drop-shadow-glow" />
               </div>
               <div className="p-4 space-y-2">
                 <h3 className="text-xl font-bold group-hover:text-primary transition-smooth">{item.title}</h3>
