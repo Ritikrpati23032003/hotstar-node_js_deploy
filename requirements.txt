@@ -1,0 +1,6 @@
+Flask
+PyMySQL
+boto3
+flask-cors
+bcrypt
+python-dotenv
