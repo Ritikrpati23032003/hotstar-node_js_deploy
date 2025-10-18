@@ -20,12 +20,12 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const res = await axios.post("http://localhost:5000/signup", {
-        username,
-        email,
-        password,
-      });
+      try {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
+  username,
+  email,
+  password,
+});
       
       toast.success(res.data.message || "Account created successfully!");
       setTimeout(() => navigate("/login"), 1500);
