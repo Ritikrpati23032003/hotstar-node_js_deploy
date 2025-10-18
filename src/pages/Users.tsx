@@ -24,7 +24,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/users");
+       const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
       setUsers(res.data);
     } catch (err: any) {
       toast.error(err.response?.data?.error || "Failed to fetch users");
